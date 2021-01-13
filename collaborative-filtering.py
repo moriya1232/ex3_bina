@@ -60,7 +60,11 @@ def build_CF_prediction_matrix(sim):
 def get_CF_recommendation(user_id, k):
     books = pd.read_csv("books.csv", encoding='ISO-8859-1', usecols=['book_id', 'title'])
     user = user_id - 1
-    data_matrix = build_CF_prediction_matrix("cosine")
+    cosine = "cosine"
+    euclidean = "euclidean"
+    # TODO: check the problem with jaccard
+    jaccard = "jaccard"
+    data_matrix = build_CF_prediction_matrix(euclidean)
     data_matrix_row = data_matrix[user]
 
     result = get_top_rated(data_matrix_row, books, k)
