@@ -87,8 +87,8 @@ def weighted_rating(x, m, C):
     return result
 
 def main():
-    # get_simply_recommendation(10)
-    # get_simply_place_recommendation("Ohio", 10)
+    get_simply_recommendation(10)
+    get_simply_place_recommendation("Ohio", 10)
     get_simply_age_recommendation(28, 10)
 
 # Press the green button in the gutter to run the script.
