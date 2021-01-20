@@ -71,7 +71,7 @@ def get_CF_recommendation(user_id, k):
     euclidean = "euclidean"
     jaccard = "jaccard"
 
-    user_similarity, data_matrix, list_of_users = build_CF_prediction_matrix(jaccard)
+    user_similarity, data_matrix, list_of_users = build_CF_prediction_matrix(cosine)
     user = list_of_users.index(user_id)
 
     prediction_row = user_similarity[user]
