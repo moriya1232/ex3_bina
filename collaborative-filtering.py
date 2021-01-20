@@ -44,8 +44,10 @@ def build_CF_prediction_matrix(sim):
 
     # calculate user x user similarity matrix
 
-    if sim == "jaccard":
-        user_similarity = 1 - pairwise_distances(ratings_diff, metric=distance.jaccard)
+    if sim == "cosine" or sim == "euclidean" or sim == "jaccard":
+        #ratings_diff = np.array(ratings_diff, dtype=bool)
+        user_similarity = 1 - pairwise_distances(ratings_diff, metric=sim)
+        # user_similarity = pairwise_distances(ratings_diff, metric=distance.jaccard)
     else:
         try:
             user_similarity = 1 - pairwise_distances(ratings_diff, metric=sim)
@@ -83,7 +85,8 @@ def get_CF_recommendation(user_id, k):
 
 def main():
     # build_CF_prediction_matrix("cosine")
-    get_CF_recommendation(511, 10)
+    get_CF_recommendation(56, 10)
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
