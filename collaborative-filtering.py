@@ -66,9 +66,11 @@ def build_CF_prediction_matrix(sim):
 
 def get_CF_recommendation(user_id, k):
     books = pd.read_csv("books.csv", encoding='ISO-8859-1', usecols=['book_id', 'title'])
+
     cosine = "cosine"
     euclidean = "euclidean"
     jaccard = "jaccard"
+
     user_similarity, data_matrix, list_of_users = build_CF_prediction_matrix(jaccard)
     user = list_of_users.index(user_id)
 
