@@ -72,6 +72,9 @@ def get_CF_recommendation(user_id, k):
     jaccard = "jaccard"
 
     user_similarity, data_matrix, list_of_users = build_CF_prediction_matrix(cosine)
+    return get_CF_recommendation_temp(books, user_id, k, user_similarity, data_matrix, list_of_users)
+
+def get_CF_recommendation_temp(books, user_id, k, user_similarity, data_matrix, list_of_users):
     user = list_of_users.index(user_id)
 
     prediction_row = user_similarity[user]
@@ -171,3 +174,5 @@ def weighted_rating(x, m, C):
     # Calculation based on the IMDB formula
     result = (v / (v + m) * R) + (m / (m + v) * C)
     return result
+
+get_CF_recommendation(56, 10)
